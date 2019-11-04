@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <recipe>
+    <instantiate from="root/version.gradle.ftl"
+                   to="${escapeXmlAttribute(topOut)}/version.gradle" />
+
     <instantiate from="root/build.gradle.ftl"
                    to="${escapeXmlAttribute(topOut)}/build.gradle" />
 

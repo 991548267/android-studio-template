@@ -13,8 +13,11 @@
 </#if>
 </#macro>
 
-buildscript {<#if includeKotlinSupport!false>
-    ext.kotlin_version = '${kotlinVersion}'</#if>
+buildscript {
+    apply from: 'version.gradle'
+    <#if includeKotlinSupport!false>
+    ext.kotlin_version = '${kotlinVersion}'
+    </#if>
     <@loadProperties/>
     repositories {
         <@useProperties/>
@@ -34,8 +37,15 @@ allprojects {
     <@loadProperties/>
     repositories {
         <@useProperties/>
-        google()
-        jcenter()
+        maven {
+            url "https://maven.aliyun.com/repository/google"
+        }
+        maven {
+            url "https://maven.aliyun.com/repository/jcenter"
+        }
+        maven {
+            url "https://jitpack.io"
+        }
         <#if includeKotlinEapRepo!false>maven { url '${kotlinEapRepoUrl}' }</#if>
     }
 }
