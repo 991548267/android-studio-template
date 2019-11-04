@@ -13,6 +13,10 @@ apply plugin: 'com.android.application'
 </#if>
 <@kt.addKotlinPlugins />
 
+def static releaseTime() {
+    return new Date().format("yyMMdd-HH-mm", TimeZone.getTimeZone("GMT+8"))
+}
+
 <@shared.androidConfig hasApplicationId=isApplicationProject applicationId=packageName isBaseFeature=isBaseFeature hasTests=true canHaveCpp=true canUseProguard=isApplicationProject||isBaseFeature||(isLibraryProject&&!isInstantApp)/>
 
 dependencies {
@@ -36,5 +40,7 @@ dependencies {
   </#if>
 <#else>
   <@shared.watchProjectDependencies/>
+    implementation dependency.support.appcompat
+    implementation dependency.constraint_layout
 </#if>
 }

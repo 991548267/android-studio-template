@@ -11,6 +11,11 @@
 
     <instantiate from="root/build.gradle.ftl"
                    to="${escapeXmlAttribute(projectOut)}/build.gradle" />
+    <merge from="root/build-extra.gradle.ftl"
+                   to="${escapeXmlAttribute(projectOut)}/build.gradle" />
+
+    <copy from="root/default.jks.ftl"
+                   to="${escapeXmlAttribute(projectOut)}/default.jks" />
 
     <instantiate from="root/AndroidManifest.xml.ftl"
                    to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />
@@ -21,6 +26,8 @@
     <instantiate from="root/res/values/strings.xml.ftl"
                    to="${escapeXmlAttribute(resOut)}/values/strings.xml" />
 </#if>
+    <instantiate from="root/res/xml/network_security_config.xml.ftl"
+                   to="${escapeXmlAttribute(resOut)}/xml/network_security_config.xml" />
 
     <instantiate from="root/test/app_package/ExampleInstrumentedTest.${ktOrJavaExt}.ftl"
                    to="${escapeXmlAttribute(testOut)}/ExampleInstrumentedTest.${ktOrJavaExt}" />
