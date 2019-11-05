@@ -11,8 +11,6 @@
 
     <instantiate from="root/build.gradle.ftl"
                    to="${escapeXmlAttribute(projectOut)}/build.gradle" />
-    <merge from="root/build-extra.gradle.ftl"
-                   to="${escapeXmlAttribute(projectOut)}/build.gradle" />
 
     <copy from="root/default.jks.ftl"
                    to="${escapeXmlAttribute(projectOut)}/default.jks" />
