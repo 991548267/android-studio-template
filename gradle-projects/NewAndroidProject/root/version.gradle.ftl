@@ -35,7 +35,7 @@ versions.dagger = "2.16"
 versions.dexmaker = "2.2.0"
 versions.espresso = "3.1.1"
 versions.fragment = "1.1.0-alpha09"
-versions.glide = "4.8.0"
+versions.glide = "4.9.0"
 versions.hamcrest = "1.3"
 versions.junit = "4.12"
 versions.kotlin = "1.3.40"
@@ -47,14 +47,19 @@ versions.mockwebserver = "3.8.1"
 versions.navigation = "2.1.0-alpha04"
 versions.okhttp_logging_interceptor = "3.9.0"
 versions.paging = "2.1.0-rc01"
-versions.retrofit = "2.3.0"
+versions.retrofit = "2.6.2"
 versions.robolectric = "4.2"
-versions.room = "2.1.0-alpha06"
-versions.rx_android = "2.0.1"
-versions.rxjava2 = "2.1.3"
+versions.room = "2.1.0-alpha04"
+versions.rxandroid = "2.1.1"
+versions.rxjava = "2.2.14"
 versions.support = "1.0.0"
 versions.timber = "4.5.1"
+versions.webkit = "1.0.0"
 versions.work = "2.1.0"
+
+versions.fastjson = "1.1.71.android"
+versions.gson = "2.8.6"
+versions.okhttp = "3.14.0"
 ext.versions = versions
 
 def dependency = [:]
@@ -144,23 +149,28 @@ def glide = [:]
 glide.runtime = "com.github.bumptech.glide:glide:$versions.glide"
 glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
 dependency.glide = glide
+
 dependency.dexmaker = "com.linkedin.dexmaker:dexmaker-mockito:$versions.dexmaker"
 dependency.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
 dependency.timber = "com.jakewharton.timber:timber:$versions.timber"
 dependency.junit = "junit:junit:$versions.junit"
 dependency.mock_web_server = "com.squareup.okhttp3:mockwebserver:$versions.mockwebserver"
-dependency.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
-dependency.rx_android = "io.reactivex.rxjava2:rxandroid:$versions.rx_android"
+dependency.rxjava = "io.reactivex.rxjava2:rxjava:$versions.rxjava"
+dependency.rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
 dependency.hamcrest = "org.hamcrest:hamcrest-all:$versions.hamcrest"
 dependency.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
 dependency.robolectric = "org.robolectric:robolectric:$versions.robolectric"
 ext.dependency = dependency
 
 def build_versions = [:]
-build_versions.min_sdk = 21
+build_versions.min_sdk = 22
 build_versions.target_sdk = 29
 build_versions.build_tools = "29.0.2"
 ext.build_versions = build_versions
+
+def webkit = [:]
+webkit.runtime = "androidx.webkit:webkit:$versions.webkit"
+dependency.webkit = webkit
 
 def work = [:]
 work.runtime = "androidx.work:work-runtime:$versions.work"
@@ -178,5 +188,14 @@ navigation.ui = "androidx.navigation:navigation-ui:$versions.navigation"
 navigation.ui_ktx = "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 navigation.safe_args_gradle_plugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
 dependency.navigation = navigation
+
+def json = [:]
+json.fastjson = "com.alibaba:fastjson:$versions.fastjson"
+json.gson = "com.google.code.gson:gson:$versions.gson"
+dependency.json = json
+
+def okhttp = [:]
+okhttp.runtime = "com.squareup.okhttp3:okhttp:$versions.okhttp"
+dependency.okhttp = okhttp
 
 ext.dependency = dependency
